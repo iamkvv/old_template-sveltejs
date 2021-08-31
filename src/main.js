@@ -1,10 +1,10 @@
-import App from './App.svelte';
+import App1 from './App1.svelte';
 
-const app = new App({
+const app = new App1({
 	target: document.body,
 	props: {
-		name: 'мир'
+		name2: 'мир-world-'
 	}
 });
 
-export default app;
+//export default app; /// Зачем это нужно???

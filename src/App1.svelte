@@ -1,13 +1,17 @@
 <script>
 	import sum from "lodash/sum";
+	import Test from './Test.svelte'
 
-	export let name;
-	let x = sum([1, 2, 3]);
+	export let name2;
+	let x = sum([1, 2, 3,4]);
+	//import app from './main';
+	//let q = app.props.name;
 </script>
 
 <main>
 	{x}
-	<h1>HI {name}!!!</h1>
+	<Test name='qwe'/>
+	<h1>HI {name2}!!</h1>
 	<h2>это проверка</h2>
 	<p>
 		Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
