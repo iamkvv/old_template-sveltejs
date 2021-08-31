@@ -1,5 +1,5 @@
 # A Svelte template on Gitpod
-
+Добавлено в shared
 This is a [Svelte](https://svelte.dev) template configured for ephemeral development environments on [Gitpod](https://www.gitpod.io/).
 
 ## SvelteKit
