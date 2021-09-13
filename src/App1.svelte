@@ -1,49 +1,54 @@
 <script>
 	import sum from "lodash/sum";
-	import Test from './Test.svelte'
+	import Test from "./Test.svelte";
 
-	export let name2;
 	export let arr;
-	let x = sum([1, 2, 3,4]);
-	//import app from './main';
-	//let q = app.props.name;
+	let x = sum([1, 2, 3, 4]);
+
+	function handleMessage(event) {
+		switch (event.detail.text) {
+			case "lodash": 
+				console.log("LODASH");
+				{break}
+			case "js": 
+				console.log("JS");
+				{break}
+			default:
+				console.log("??");
+		}
+	}
 </script>
 
 <main>
-	{x}
-{#each arr as a }
-<p>{a.index} - {a.item}</p> 
-	
-{/each}
+	<table border="1px">
+		{#each arr as a}
+			<tr>
+				<td>{a.index}</td>
+				<td> {a.item}</td>
+			</tr>
+		{/each}
+	</table>
 
-	<Test name='qwe'/>
-	<h1>HI {name2}!!</h1>
-	<h2>это проверка</h2>
-	<p>
-		Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
-		how to build Svelte apps.
-	</p>
+	<Test
+		on:message={handleMessage}
+		text="Добавить элемент в массив (Lodash)"
+		test="lodash"
+	/>
+	<Test
+		on:message={handleMessage}
+		text="Добавить элемент в массив (JS)"
+		test="js"
+	/>
 </main>
 
 <style>
+	table {
+		border-collapse: collapse;
+	}
+	td {
+		padding: 5px;
+	}
 	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-		box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-	}
-
-	h1 {
-		color: #423b9e;
-		text-transform: lowercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+		margin: 20px;
 	}
 </style>
