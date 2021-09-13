@@ -1,6 +1,11 @@
 <script>
 	import sum from "lodash/sum";
 	import concat from "lodash/concat";
+
+    //npm i --save lodash
+//https://www.w3schools.com/html/default.asp
+//https://only-to-top.ru/blog/coding/2020-12-30-js-array-cheatsheet.html
+
 	import Test from "./Test.svelte";
 
 	export let arr;
@@ -14,9 +19,11 @@
 				{break}
 			case "js": 
 				console.log("JS");
-				// arr.push({item: 'item: 777', index: 'JS'});
+				//1-й вар-т arr.push({item: 'item: 777', index: 'JS'});
 	            // arr = arr;
-                arr = [...arr, {item: 'item: 777', index: 'JS'}] 
+				//2-й вар-т
+				arr = arr.concat({item: 'item: 555', index: 'JS'});
+                //3-й вар-т arr = [...arr, {item: 'item: 444', index: 'JS'}] 
 				{break}
 			default:
 				console.log("??");

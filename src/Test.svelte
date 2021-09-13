@@ -35,10 +35,10 @@
         width: 66%;
     }
     .btn {
+        padding: 5px;
         width: 34%;
     }
     .btn button {
-        height: 40px;
-        width: 100%;
+         width: 100%; 
     }
 </style>
