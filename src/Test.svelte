@@ -2,6 +2,7 @@
      import { createEventDispatcher } from "svelte";
      const dispatch = createEventDispatcher();
      export let text,test;
+
     function changeData() {
         dispatch("message", {
             text: test,
@@ -14,7 +15,7 @@
         {text}
     </div>
     <div class="btn">
-        <button on:click={changeData}> ADD LODASH </button>
+        <button on:click={changeData}> Выполнить </button>
     </div>
 </div>
 
@@ -27,6 +28,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        margin: 10px 0
     }
     .content {
         padding: 5px;

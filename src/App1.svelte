@@ -1,5 +1,6 @@
 <script>
 	import sum from "lodash/sum";
+	import concat from "lodash/concat";
 	import Test from "./Test.svelte";
 
 	export let arr;
@@ -9,9 +10,13 @@
 		switch (event.detail.text) {
 			case "lodash": 
 				console.log("LODASH");
+				arr = concat(arr, {item: 'item: 999', index: 'LD'})
 				{break}
 			case "js": 
 				console.log("JS");
+				// arr.push({item: 'item: 777', index: 'JS'});
+	            // arr = arr;
+                arr = [...arr, {item: 'item: 777', index: 'JS'}] 
 				{break}
 			default:
 				console.log("??");
