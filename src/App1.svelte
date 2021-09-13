@@ -3,6 +3,7 @@
 	import Test from './Test.svelte'
 
 	export let name2;
+	export let arr;
 	let x = sum([1, 2, 3,4]);
 	//import app from './main';
 	//let q = app.props.name;
@@ -10,6 +11,11 @@
 
 <main>
 	{x}
+{#each arr as a }
+<p>{a.index} - {a.item}</p> 
+	
+{/each}
+
 	<Test name='qwe'/>
 	<h1>HI {name2}!!</h1>
 	<h2>это проверка</h2>
