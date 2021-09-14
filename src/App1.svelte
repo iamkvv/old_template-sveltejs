@@ -7,9 +7,13 @@
 //https://only-to-top.ru/blog/coding/2020-12-30-js-array-cheatsheet.html
 
 	import Test from "./Test.svelte";
+	import Comp1 from "./Comp1.svelte"
+	import Comp2 from "./Comp2.svelte"
 
 	export let arr;
 	let x = sum([1, 2, 3, 4]);
+
+	export let toggle = true;
 
 	function handleMessage(event) {
 		switch (event.detail.text) {
@@ -29,9 +33,22 @@
 				console.log("??");
 		}
 	}
+
+	function tgl(){
+		toggle=!toggle
+	}
 </script>
 
 <main>
+{#if  (toggle)}
+   <Comp1/>
+{:else}
+  <Comp2/>
+{/if}
+
+<button on:click={()=>toggle=!toggle}>Toggle</button>
+
+
 	<table border="1px">
 		{#each arr as a}
 			<tr>
