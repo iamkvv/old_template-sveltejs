@@ -9,6 +9,8 @@
 	import Test from "./Test.svelte";
 	import Comp1 from "./Comp1.svelte";
 	import Comp2 from "./Comp2.svelte";
+import Flexlearn from "./Flexlearn.svelte"
+
 
 	export let arr;
 	let x = sum([1, 2, 3, 4]);
@@ -59,6 +61,8 @@
 </script>
 
 <main>
+	<Flexlearn/>
+	
 	{#if toggle}
 		<Comp1 />
 	{:else}
