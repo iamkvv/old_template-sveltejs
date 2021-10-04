@@ -42,18 +42,6 @@ import Flexlearn from "./Flexlearn.svelte"
 
 	function tgl() {
 		toggle = !toggle;
-		if (test === "column") {
-			test = "row";
-		} else {
-			test = "column";
-		}
-		if (test2 === "block") {
-			test2 = "flex";
-		} else {
-			test2 = "block";
-		}
-		
-		console.log(test);
 	}
 
 	let test = "column";
@@ -62,7 +50,7 @@ import Flexlearn from "./Flexlearn.svelte"
 
 <main>
 	<Flexlearn/>
-	
+<!-- 	
 	{#if toggle}
 		<Comp1 />
 	{:else}
@@ -93,11 +81,11 @@ import Flexlearn from "./Flexlearn.svelte"
 	<div  class="container" style="--qwe:{test};--bl:{test2}">
 		<div>1</div>
 		<div>2</div>
-	</div>
+	</div> -->
 </main>
 
 <style>
-	.container {
+	/* .container {
 		display: var(--bl);
 		flex-direction: var(--qwe);
 	}
@@ -109,5 +97,5 @@ import Flexlearn from "./Flexlearn.svelte"
 	}
 	main {
 		margin: 20px;
-	}
+	} */
 </style>
