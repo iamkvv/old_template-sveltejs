@@ -40,7 +40,22 @@
 
 	function tgl() {
 		toggle = !toggle;
+		if (test === "column") {
+			test = "row";
+		} else {
+			test = "column";
+		}
+		if (test2 === "block") {
+			test2 = "flex";
+		} else {
+			test2 = "block";
+		}
+		
+		console.log(test);
 	}
+
+	let test = "column";
+     let test2 ="block";
 </script>
 
 <main>
@@ -50,8 +65,8 @@
 		<Comp2 />
 	{/if}
 
-	<button on:click={() => (toggle = !toggle)}>Toggle</button>
-	
+	<button on:click={tgl}>Toggle</button>
+
 	<table border="1px">
 		{#each arr as a}
 			<tr>
@@ -71,9 +86,17 @@
 		text="Добавить элемент в массив (JS)"
 		test="js"
 	/>
+	<div  class="container" style="--qwe:{test};--bl:{test2}">
+		<div>1</div>
+		<div>2</div>
+	</div>
 </main>
 
 <style>
+	.container {
+		display: var(--bl);
+		flex-direction: var(--qwe);
+	}
 	table {
 		border-collapse: collapse;
 	}
