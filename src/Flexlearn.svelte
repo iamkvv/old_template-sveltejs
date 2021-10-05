@@ -24,9 +24,7 @@
 
 <div class="constr-container">
     <!-- контейнер вложенных элементов -->
-    <div
-        class="holder"
-        style="border:1px solid #ddd;
+    <div style="border:1px solid #ddd;
                min-width:300px;
                margin-right:10px;"
     >
@@ -93,9 +91,9 @@
     .constr-container {
         display: flex;
         flex-direction: row;
-        width: 500px;
+        width: max-content;
         margin: 0 auto;
-        justify-content: space-between;
+         justify-content: space-between; 
     }
     .field {
         border: 3px solid yellow;
@@ -107,10 +105,8 @@
     }
     .item {
         width: 50px;
-        background-color: rgb(201, 222, 250);
-    }
-    .item {
         margin-left: 1%;
+        background-color: rgb(201, 222, 250);
     }
     .props {
         display: flex;
