@@ -92,8 +92,9 @@
         display: flex;
         flex-direction: row;
         width: max-content;
-        margin: 0 auto;
-         justify-content: space-between; 
+        margin: 20px auto;
+        padding: 10px;
+        border: 1px solid #eee;
     }
     .field {
         border: 3px solid yellow;
