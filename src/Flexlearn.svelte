@@ -24,7 +24,8 @@
 
 <div class="constr-container">
     <!-- контейнер вложенных элементов -->
-    <div style="border:1px solid #ddd;
+    <div
+        style="border:1px solid #ddd;
                min-width:300px;
                margin-right:10px;"
     >
@@ -99,7 +100,7 @@
     .field {
         border: 3px solid yellow;
         height: 300px;
-        margin:3px;
+        margin: 3px;
         display: var(--disp);
         flex-direction: var(--dir);
         justify-content: var(--jcont);
