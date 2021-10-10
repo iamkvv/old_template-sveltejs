@@ -37,7 +37,7 @@
 
     
 </script>
-//Выкладываем combobox'ы
+<!-- Выкладываем combobox'ы -->
 {#each flexProps as prp}
     <SelectProp flex_prop={prp} on:selprop={setFlexStyle} />
 {/each}
