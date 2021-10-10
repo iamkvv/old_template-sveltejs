@@ -1,6 +1,6 @@
 <script>
-    import Flexlearn from "./Flexlearn.svelte";
     import SelectProp from "./Components/selectContainerProp.svelte";
+    let flexProps = ["display", "direction", "wrap", "justify-content"];
 
     function setFlexStyle(event) {
         console.log("???", event, event.detail.prop, event.detail.id);
@@ -10,6 +10,9 @@
                 break;
             case "direction":
                 selectedDirection = event.detail.id;
+                break;
+            case "wrap":
+                selectedWrap = event.detail.id;
                 break;
             case "justify-content":
                 selectedJcont = event.detail.id;
@@ -25,22 +28,26 @@
     let selectedWrap = "wrap";
 </script>
 
-<SelectProp flex_prop="display" on:selprop={setFlexStyle} />
+{#each flexProps as prop}
+    <SelectProp flex_prop={prop} on:selprop={setFlexStyle} />
+{/each}
+
+<!-- <SelectProp flex_prop="display" on:selprop={setFlexStyle} />
 <br />
 <SelectProp flex_prop="direction" on:selprop={setFlexStyle} />
 <br />
 <SelectProp flex_prop="wrap" on:selprop={setFlexStyle} />
 <br />
 <SelectProp flex_prop="justify-content" on:selprop={setFlexStyle} />
-<br />
+<br /> -->
 
 <div class="constr-container">
-    <!-- контейнер вложенных элементов -->
     <div
         style="border:1px solid #ddd;
                min-width:300px;
                margin-right:10px;"
     >
+        <!-- контейнер вложенных элементов -->
         <div
             class="field"
             style="--disp:{selectedDisplay};
@@ -69,12 +76,11 @@
         border: 3px solid yellow;
         height: 300px;
         margin: 3px;
-        /* -- */
+        /* -flex-переменные- */
         display: var(--disp);
         flex-direction: var(--dir);
         justify-content: var(--jcont);
         flex-wrap: var(--wrap);
-        /* -- */
     }
     .item {
         width: 50px;
