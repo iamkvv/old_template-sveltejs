@@ -1,35 +1,45 @@
 <script>
-    import SelectProp from "./Components/selectContainerProp.svelte";
-    let flexProps = ["display", "direction", "wrap", "justify-content"];
+    import SelectProp from "./Components/selectPropContainer.svelte";
+
+    let flexProps = [
+        { propname: "display", default: "block" },
+        { propname: "direction", default: "row" },
+        { propname: "wrap", default: "nowrap" },
+        { propname: "justify-content", default: "flex-start" },
+    ];
 
     function setFlexStyle(event) {
-        console.log("???", event, event.detail.prop, event.detail.id);
+        console.log("??", event, event.detail.prop, event.detail.propValue);
         switch (event.detail.prop) {
             case "display":
-                selectedDisplay = event.detail.id;
+                selDisplay = event.detail.propValue;
                 break;
             case "direction":
-                selectedDirection = event.detail.id;
+                selDirection = event.detail.propValue;
                 break;
             case "wrap":
-                selectedWrap = event.detail.id;
+                selWrap = event.detail.propValue;
                 break;
             case "justify-content":
-                selectedJcont = event.detail.id;
+                selJustContent = event.detail.propValue;
                 break;
             default:
                 console.log("No such prop");
         }
     }
-    //выбранные значения
-    let selectedDisplay = "block";
-    let selectedDirection = "row";
-    let selectedJcont = "flex-start";
-    let selectedWrap = "wrap";
-</script>
+    //Выбранные значения. Умолч-я берутся из коллекции flexProps (только в 1-й стр.)
+    let selDisplay = flexProps.filter((o) => o.propname == "display")[0].default;
+    let selDirection = "row"; //Взять умолчания из коллекции
+    let selJustContent = "flex-start";
+    let selWrap = "nowrap";
 
-{#each flexProps as prop}
-    <SelectProp flex_prop={prop} on:selprop={setFlexStyle} />
+    let itemCount =5;
+
+    
+</script>
+//Выкладываем combobox'ы
+{#each flexProps as prp}
+    <SelectProp flex_prop={prp} on:selprop={setFlexStyle} />
 {/each}
 
 <!-- <SelectProp flex_prop="display" on:selprop={setFlexStyle} />
@@ -40,7 +50,11 @@
 <br />
 <SelectProp flex_prop="justify-content" on:selprop={setFlexStyle} />
 <br /> -->
-
+<div>
+    <button on:click={()=>itemCount+=1}>
+        Добавить дочерний эл-т
+    </button>
+</div>
 <div class="constr-container">
     <div
         style="border:1px solid #ddd;
@@ -50,19 +64,18 @@
         <!-- контейнер вложенных элементов -->
         <div
             class="field"
-            style="--disp:{selectedDisplay};
-                   --dir:{selectedDirection};
-                   --jcont:{selectedJcont};
-                   --wrap:{selectedWrap}"
+            style="--disp:{selDisplay};
+                   --dir:{selDirection};
+                   --jcont:{selJustContent};
+                   --wrap:{selWrap}"
         >
-            <div class="item">1</div>
-            <div class="item">2</div>
-            <div class="item">3</div>
+            {#each Array(itemCount) as _, i}
+                <div class="item">{i+1}</div>
+            {/each}
         </div>
     </div>
 </div>
 
-<!-- <Flexlearn /> -->
 <style>
     .constr-container {
         display: flex;

@@ -4,49 +4,49 @@
 
     let options = {
         display: [
-            { id: "block", text: "block" },
-            { id: "none", text: "none" },
-            { id: "flex", text: "flex" },
-            { id: "inline-flex", text: "inline-flex" },
+            { propValue: "block", text: "block" },
+            { propValue: "flex", text: "flex" },
+            { propValue: "inline-flex", text: "inline-flex" },
+            { propValue: "none", text: "none" },
         ],
         direction: [
-            { id: "row", text: "row" },
-            { id: "row-reverse", text: "row-reverse" },
-            { id: "column", text: "column" },
-            { id: "column-reverse", text: "column-reverse" },
+            { propValue: "row", text: "row" },
+            { propValue: "row-reverse", text: "row-reverse" },
+            { propValue: "column", text: "column" },
+            { propValue: "column-reverse", text: "column-reverse" },
         ],
         "justify-content": [
-            { id: "flex-start", text: "flex-start" },
-            { id: "flex-end", text: "flex-end" },
-            { id: "center", text: "center" },
-            { id: "space-between", text: "space-between" },
-            { id: "space-around", text: "space-around" },
+            { propValue: "flex-start", text: "flex-start" },
+            { propValue: "flex-end", text: "flex-end" },
+            { propValue: "center", text: "center" },
+            { propValue: "space-between", text: "space-between" },
+            { propValue: "space-around", text: "space-around" },
         ],
         "wrap": [
-            { id: "wrap", text: "wrap" },
-            { id: "nowrap", text: "nowrap" },
-            { id: "wrap-reverse", text: "wrap-reverse" },
-            { id: "unset", text: "unset" },
+            { propValue: "wrap", text: "wrap" },
+            { propValue: "nowrap", text: "nowrap" },
+            { propValue: "wrap-reverse", text: "wrap-reverse" },
+            { propValue: "unset", text: "unset" },
         ],
     };
     export let flex_prop;
 
     function onSelectProp(e) {
         dispatch("selprop", {
-            prop: flex_prop,
-            id: e.target.options[e.target.options.selectedIndex].text,
+            prop: flex_prop.propname,
+            propValue: e.target.options[e.target.options.selectedIndex].text,
         });
     }
 </script>
 
 <div>
-    <select
+    <select value={flex_prop.default}
         class="select-prop"
-        on:blur={(e) => console.log("??", 123)}
+        on:blur={null}
         on:change={(e) => onSelectProp(e)}
     >
-        {#each options[flex_prop] as prp}
-            <option value={prp.id}>
+        {#each options[flex_prop.propname] as prp}
+            <option value={prp.propValue}>
                 {prp.text}
             </option>
         {/each}

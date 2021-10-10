@@ -1,11 +1,11 @@
 <script>
-    export let flex_prop = "";
+    export let flex_prop;
     import SelectProp from './selectProp.svelte'
 </script>
 
 <div class="combobox">
     <div class="title_prop">
-        {flex_prop}:
+        {flex_prop.propname}:
     </div>
     <div class="sel_prop" >
         <SelectProp flex_prop={flex_prop} on:selprop/>
