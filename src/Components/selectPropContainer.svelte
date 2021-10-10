@@ -3,7 +3,7 @@
     import SelectProp from './selectProp.svelte'
 </script>
 
-<div class="combobox">
+<div class="container">
     <div class="title_prop">
         {flex_prop.propname}:
     </div>
@@ -13,21 +13,15 @@
 </div>
 
 <style>
-    .combobox {
+    .container {
         display: inline-flex;
         flex-direction: row;
         justify-content: space-between;
         font-size: 0.75em;
-        width: 220px;
-        box-sizing: border-box;
-        border: 1px solid gray;
+        width: 210px;
+        border: 1px solid rgb(193, 193, 194);
     }
     .title_prop{
         padding:1px 0 0 5px;
     }
-    /* .combobox select{
-        
-        margin:0 0 0 5px;
-        padding:0;
-    } */
 </style>
