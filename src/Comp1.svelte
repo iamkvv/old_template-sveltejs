@@ -1,3 +1,0 @@
-<h1>
-    Component One
-</h1>

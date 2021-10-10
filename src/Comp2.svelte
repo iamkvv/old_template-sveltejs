@@ -1,3 +1,0 @@
-<h1>
-    Component Two
-</h1>

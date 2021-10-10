@@ -8,22 +8,27 @@
             case "display":
                 selectedDisplay = event.detail.id;
                 break;
+            case "direction":
+                selectedDirection = event.detail.id;
+                break;    
             case "justify-content":
-                console.log("В точку!");
+                selectedJcont = event.detail.id;
                 break;
-
             default:
                 console.log("Not such Values");
         }
     }
+    //выбранные значения
     let selectedDisplay = "block";
-    let selectedDirection, selectedJcont; //выбранные значения
+    let selectedDirection = "row"
+    let selectedJcont = "flex-start"
 </script>
 
 <SelectProp flex_prop="display" on:selprop={setFlexStyle} />
 <br />
+<SelectProp flex_prop="direction" on:selprop={setFlexStyle} />
+<br />
 <SelectProp flex_prop="justify-content" on:selprop={setFlexStyle} />
-
 <br />
 
 <div class="constr-container">
@@ -45,9 +50,8 @@
         </div>
     </div>
 </div>
-<br />
 
-<Flexlearn />
+<!-- <Flexlearn /> -->
 
 <style>
     .constr-container {

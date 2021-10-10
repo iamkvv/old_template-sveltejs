@@ -1,10 +1,7 @@
 <script>
     export let flex_prop = "";
     import SelectProp from './selectProp.svelte'
-   
-
 </script>
-
 
 <div class="combobox">
     <div class="title_prop">

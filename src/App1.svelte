@@ -6,10 +6,7 @@
 	//https://www.w3schools.com/html/default.asp
 	//https://only-to-top.ru/blog/coding/2020-12-30-js-array-cheatsheet.html
 
-	import Test from "./Test.svelte";
-	import Comp1 from "./Comp1.svelte";
-	import Comp2 from "./Comp2.svelte";
-import Flexlearn from "./Flexlearn.svelte"
+	import Flexlearn from "./Flexlearn.svelte"
 
 
 	export let arr;
@@ -49,7 +46,6 @@ import Flexlearn from "./Flexlearn.svelte"
 </script>
 
 <main>
-	<Flexlearn/>
 <!-- 	
 	{#if toggle}
 		<Comp1 />
