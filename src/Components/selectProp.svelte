@@ -7,8 +7,7 @@
             { id: "block", text: "block" },
             { id: "none", text: "none" },
             { id: "flex", text: "flex" },
-            { id: "inline-flex", text: "inline-flex" }
-            
+            { id: "inline-flex", text: "inline-flex" },
         ],
         direction: [
             { id: "row", text: "row" },
@@ -23,13 +22,19 @@
             { id: "space-between", text: "space-between" },
             { id: "space-around", text: "space-around" },
         ],
+        "wrap": [
+            { id: "wrap", text: "wrap" },
+            { id: "nowrap", text: "nowrap" },
+            { id: "wrap-reverse", text: "wrap-reverse" },
+            { id: "unset", text: "unset" },
+        ],
     };
     export let flex_prop;
 
     function onSelectProp(e) {
         dispatch("selprop", {
-            prop:flex_prop,
-            id: e.target.options[e.target.options.selectedIndex].text
+            prop: flex_prop,
+            id: e.target.options[e.target.options.selectedIndex].text,
         });
     }
 </script>
@@ -41,7 +46,7 @@
         on:change={(e) => onSelectProp(e)}
     >
         {#each options[flex_prop] as prp}
-            <option value={prp.id} >
+            <option value={prp.id}>
                 {prp.text}
             </option>
         {/each}
