@@ -86,12 +86,13 @@
         min-width: 300px;
         max-width: 90%;
         margin: 20px auto;
-        padding: 10px;
+        padding: 5px;
+
         border: 1px solid rgb(138, 109, 216);
     }
     .field {
         border: 3px solid yellow;
-        height: auto;
+        height: 500px;
         padding: 5px;
         /* -flex-переменные- */
         display: var(--disp);

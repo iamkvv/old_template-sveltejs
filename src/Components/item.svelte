@@ -57,7 +57,7 @@
         flex-shrink: var(--flex-shrink);
         background-color: beige;
         width: 150px;
-        height: 100%;
+        height: 100px;
         padding: 5px;
         margin-left: 0.5%;
         margin-bottom: 0.5%;
