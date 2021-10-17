@@ -92,6 +92,7 @@
     .field {
         border: 3px solid yellow;
         height: auto;
+        padding: 5px;
         /* -flex-переменные- */
         display: var(--disp);
         flex-direction: var(--dir);
