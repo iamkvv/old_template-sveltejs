@@ -1,8 +1,9 @@
 <script>
     import SelectProp from "./Components/selectPropContainer.svelte";
+    import Item from "./Components/item.svelte";
 
     let flexProps = [
-        { propname: "display", default: "block" },
+        { propname: "display", default: "flex" },
         { propname: "direction", default: "row" },
         { propname: "wrap", default: "nowrap" },
         { propname: "justify-content", default: "flex-start" },
@@ -28,14 +29,32 @@
                 console.log("No such prop");
         }
     }
-    //Выбранные значения. Умолч-я берутся из коллекции flexProps (только в 1-й стр.)
+    //Выбранные значения. Умолч-я берутся из коллекции flexProps
     let selDisplay = flexProps.filter((o) => o.propname == "display")[0]
-        .default;
-    let selDirection = "row"; //Взять умолчания из коллекции
-    let selJustContent = "flex-start";
-    let selWrap = "nowrap";
+        .default; //"block"
+    let selDirection = flexProps.filter((o) => o.propname == "direction")[0]
+        .default; // "row";
+    let selJustContent = flexProps.filter((o) => o.propname == "wrap")[0]
+        .default; //"flex-start";
+    let selWrap = flexProps.filter((o) => o.propname == "justify-content")[0]
+        .default; //"flex-start";
 
-    let itemCount = 3;
+    //Работаем с дочерними компонентами (item)
+    let childs = [];
+
+    function addItem() {
+        //     childs.push({number:childs.length+1});
+        //     childs=childs;
+        //Подробней: https://ru.svelte.dev/tutorial/updating-arrays-and-objects
+        childs = [...childs, { number: childs.length + 1 }];
+    }
+
+    [...Array(3).keys()].forEach(() => addItem());
+
+    function deleteItem(idx) {//Тоже можно в одну строку
+        childs.splice(idx, 1);
+        childs = childs; 
+    }
 </script>
 
 <!-- Выкладываем combobox'ы -->
@@ -43,59 +62,40 @@
     <SelectProp flex_prop={prp} on:selprop={setFlexStyle} />
 {/each}
 
-<!--вместо этого 
-    <SelectProp flex_prop="display" on:selprop={setFlexStyle} />
-<br />
-<SelectProp flex_prop="direction" on:selprop={setFlexStyle} />
-...
--->
 <div>
-    <button on:click={() => (itemCount += 1)}> Добавить дочерний эл-т </button>
+    <button on:click={addItem}> Добавить дочерний эл-т </button>
 </div>
 <div class="constr-container">
-    <!-- <div
-        style="border:1px solid #ddd;
-               min-width:300px;
-               margin-right:10px;"
-    > -->
     <!-- контейнер вложенных элементов -->
     <div
         class="field"
         style="--disp:{selDisplay};
-                   --dir:{selDirection};
-                   --jcont:{selJustContent};
-                   --wrap:{selWrap}"
+               --dir:{selDirection};
+               --jcont:{selJustContent};
+               --wrap:{selWrap}"
     >
-        {#each Array(itemCount) as _, i}
-            <div class="item">{i + 1}</div>
+
+    {#each childs as child, i}
+            <Item index={i} number={child.number} delFunc={deleteItem} />
         {/each}
     </div>
-    <!-- </div> -->
 </div>
 
 <style>
     .constr-container {
         min-width: 300px;
-        max-width: 600px;
+        max-width: 90%;
         margin: 20px auto;
         padding: 10px;
         border: 1px solid rgb(138, 109, 216);
     }
     .field {
         border: 3px solid yellow;
-        height: 300px;
+        height: auto;
         /* -flex-переменные- */
         display: var(--disp);
         flex-direction: var(--dir);
         justify-content: var(--jcont);
         flex-wrap: var(--wrap);
     }
-    .item:last-child {
-        background-color: rgb(228, 155, 155);
-    }
-    .item {
-        width: 50px;
-        margin-left: 1%;
-        background-color: rgb(201, 222, 250);
-    }
- </style>
+</style>
