@@ -1,6 +1,11 @@
 <script>
     import SelectProp from "./Components/selectPropContainer.svelte";
     import Item from "./Components/item.svelte";
+    import Widthrange from "./Components/widthRange.svelte";
+
+    import Button from "svelte-atoms/Button.svelte";
+    import Variables from "svelte-atoms/Variables.svelte";
+
 
     let flexProps = [
         { propname: "display", default: "flex" },
@@ -9,7 +14,9 @@
         { propname: "justify-content", default: "flex-start" },
     ];
 
-    function setFlexStyle(event) {
+    let itemWidth = 20;
+
+     function setFlexStyle(event) {
         //Обработчик выбора flex-свойства
         console.log("??", event, event.detail.prop, event.detail.propValue);
         switch (event.detail.prop) {
@@ -51,9 +58,15 @@
 
     [...Array(3).keys()].forEach(() => addItem());
 
-    function deleteItem(idx) {//Тоже можно в одну строку
+    function deleteItem(idx) {
+        //Тоже можно в одну строку
         childs.splice(idx, 1);
-        childs = childs; 
+        childs = childs;
+    }
+
+    function setItemWidth(e) {
+        console.log("itemWidth ", e.target.value);
+        itemWidth = e.target.value;
     }
 </script>
 
@@ -63,7 +76,11 @@
 {/each}
 
 <div>
+    <Button on:click={addItem} iconLeft='plus'>Добавить компонент!</Button>
+
     <button on:click={addItem}> Добавить дочерний эл-т </button>
+
+    <Widthrange widthDef={itemWidth} {setItemWidth} />
 </div>
 <div class="constr-container">
     <!-- контейнер вложенных элементов -->
@@ -74,9 +91,14 @@
                --jcont:{selJustContent};
                --wrap:{selWrap}"
     >
-
-    {#each childs as child, i}
-            <Item index={i} number={child.number} delFunc={deleteItem} />
+        <!-- <svelte:component this={Item}/> -->
+        {#each childs as child, i}
+            <Item
+                index={i}
+                width={itemWidth}
+                number={child.number}
+                delFunc={deleteItem}
+            />
         {/each}
     </div>
 </div>

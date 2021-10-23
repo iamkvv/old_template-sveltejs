@@ -1,7 +1,10 @@
 <script>
+    import Tooltip from "svelte-atoms/Tooltip.svelte";
     export let index;
     export let number;
     export let delFunc;
+    export let width = 2;
+
     let itemOrder = 0;
     let itemFlexGrow = 0;
     let itemFlexShrink = 1;
@@ -11,10 +14,11 @@
     class="item"
     style="--order:{itemOrder};
            --flex-grow:{itemFlexGrow};
-           --flex-shrink:{itemFlexShrink}"
+           --flex-shrink:{itemFlexShrink};
+           --wdth:{width}%"
 >
     <div class="item-caption">
-        item {index} / {number}
+        item {index} / {number}- {width}
     </div>
 
     <div class="tooltip">
@@ -37,14 +41,17 @@
         />
         <span class="tooltiptext">flex-grow</span>
     </div>
-    <input
-        class="itemprop-value"
-        type="number"
-        bind:value={itemFlexShrink}
-        min="0"
-        max="10"
-    />
-<!-- Кнопка удаления -->
+    
+    <Tooltip text="flex-shrink">
+        <input
+            class="itemprop-value"
+            type="number"
+            bind:value={itemFlexShrink}
+            min="0"
+            max="10"
+        />
+    </Tooltip>
+    <!-- Кнопка удаления -->
     <div class="del" on:click={() => delFunc(index)}>
         <span>&times;</span>
     </div>
@@ -55,8 +62,9 @@
         order: var(--order);
         flex-grow: var(--flex-grow);
         flex-shrink: var(--flex-shrink);
+        width: var(--wdth);
         background-color: beige;
-        width: 150px;
+        /* width: 150px; */
         height: 100px;
         padding: 5px;
         margin-left: 0.5%;
@@ -104,7 +112,7 @@
         color: #fff;
         text-align: center;
         border-radius: 6px;
-        padding: 3px ;
+        padding: 3px;
         z-index: 1;
     }
 
