@@ -15,42 +15,43 @@
     style="--order:{itemOrder};
            --flex-grow:{itemFlexGrow};
            --flex-shrink:{itemFlexShrink};
-           --wdth:{width}%"
+           --wdth:{width}%;"
 >
-    <div class="item-caption">
-        item {index} / {number}- {width}
-    </div>
+    <div class="item-controls" style="--dsp:{width < 5 ? 'none' : 'block'}">
+        <div class="item-caption">
+            {index} / {number}- {width}%
+        </div>
 
-    <div class="tooltip">
-        <input
-            class="itemprop-value"
-            type="number"
-            bind:value={itemOrder}
-            min="0"
-            max="10"
-        />
-        <span class="tooltiptext">order</span>
+        <Tooltip text="flex-order">
+            <input
+                class="itemprop-value"
+                type="number"
+                bind:value={itemOrder}
+                min="0"
+                max="10"
+            />
+        </Tooltip>
+
+        <Tooltip text="flex-grow">
+            <input
+                class="itemprop-value"
+                type="number"
+                bind:value={itemFlexGrow}
+                min="0"
+                max="10"
+            />
+        </Tooltip>
+
+        <Tooltip text="flex-shrink">
+            <input
+                class="itemprop-value"
+                type="number"
+                bind:value={itemFlexShrink}
+                min="0"
+                max="10"
+            />
+        </Tooltip>
     </div>
-    <div class="tooltip">
-        <input
-            class="itemprop-value"
-            type="number"
-            bind:value={itemFlexGrow}
-            min="0"
-            max="10"
-        />
-        <span class="tooltiptext">flex-grow</span>
-    </div>
-    
-    <Tooltip text="flex-shrink">
-        <input
-            class="itemprop-value"
-            type="number"
-            bind:value={itemFlexShrink}
-            min="0"
-            max="10"
-        />
-    </Tooltip>
     <!-- Кнопка удаления -->
     <div class="del" on:click={() => delFunc(index)}>
         <span>&times;</span>
@@ -58,14 +59,18 @@
 </div>
 
 <style>
+    .item-controls {
+        display: var(--dsp);
+    }
     .item {
         order: var(--order);
         flex-grow: var(--flex-grow);
         flex-shrink: var(--flex-shrink);
         width: var(--wdth);
+        display: var(--dsp);
         background-color: beige;
         /* width: 150px; */
-        height: 100px;
+        height: auto;
         padding: 5px;
         margin-left: 0.5%;
         margin-bottom: 0.5%;
@@ -81,7 +86,7 @@
         font-size: 0.75em;
         margin: 0;
         padding: 0;
-        border: 1px solid silver;
+        width: 95%;
     }
     .del {
         color: white;
@@ -97,7 +102,7 @@
         border-radius: 50%;
         cursor: pointer;
     }
-    .tooltip {
+    /* .tooltip {
         position: relative;
     }
 
@@ -118,5 +123,5 @@
 
     .tooltip:hover .tooltiptext {
         visibility: visible;
-    }
+    } */
 </style>

@@ -3,9 +3,9 @@
     import Item from "./Components/item.svelte";
     import Widthrange from "./Components/widthRange.svelte";
 
+    //https://svelte-atoms.web.app/
     import Button from "svelte-atoms/Button.svelte";
     import Variables from "svelte-atoms/Variables.svelte";
-
 
     let flexProps = [
         { propname: "display", default: "flex" },
@@ -16,7 +16,7 @@
 
     let itemWidth = 20;
 
-     function setFlexStyle(event) {
+    function setFlexStyle(event) {
         //Обработчик выбора flex-свойства
         console.log("??", event, event.detail.prop, event.detail.propValue);
         switch (event.detail.prop) {
@@ -76,10 +76,10 @@
 {/each}
 
 <div>
-    <Button on:click={addItem} iconLeft='plus'>Добавить компонент!</Button>
-
+    <Button on:click={addItem} iconLeft="plus">Добавить компонент</Button>
     <button on:click={addItem}> Добавить дочерний эл-т </button>
-
+</div>
+<div>
     <Widthrange widthDef={itemWidth} {setItemWidth} />
 </div>
 <div class="constr-container">
@@ -91,7 +91,6 @@
                --jcont:{selJustContent};
                --wrap:{selWrap}"
     >
-        <!-- <svelte:component this={Item}/> -->
         {#each childs as child, i}
             <Item
                 index={i}
