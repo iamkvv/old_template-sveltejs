@@ -1,4 +1,5 @@
 <script>
+  import Tooltip from "svelte-atoms/Tooltip.svelte";
   export let widthDef;
   export let setItemWidth;
 </script>

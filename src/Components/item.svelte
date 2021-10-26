@@ -17,7 +17,7 @@
            --flex-shrink:{itemFlexShrink};
            --wdth:{width}%;"
 >
-    <div class="item-controls" style="--dsp:{width < 5 ? 'none' : 'block'}">
+    <div class="item-controls" style="--dsp:{width < 5 ? 'none' : 'flex'}; flex-direction:column;align-items: center;">
         <div class="item-caption">
             {index} / {number}- {width}%
         </div>
@@ -102,26 +102,4 @@
         border-radius: 50%;
         cursor: pointer;
     }
-    /* .tooltip {
-        position: relative;
-    }
-
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        position: absolute;
-        font-size: 0.75em;
-        width: 60px;
-        bottom: 100%;
-        margin-left: -5px;
-        background-color: blue;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 3px;
-        z-index: 1;
-    }
-
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-    } */
 </style>

@@ -65,7 +65,7 @@
     }
 
     function setItemWidth(e) {
-        console.log("itemWidth ", e.target.value);
+        console.log("itemWidth", e.target.value);
         itemWidth = e.target.value;
     }
 </script>
@@ -80,7 +80,7 @@
     <button on:click={addItem}> Добавить дочерний эл-т </button>
 </div>
 <div>
-    <Widthrange widthDef={itemWidth} {setItemWidth} />
+    <Widthrange widthDef={itemWidth} {setItemWidth}/>
 </div>
 <div class="constr-container">
     <!-- контейнер вложенных элементов -->
