@@ -4,24 +4,22 @@
   export let setItemWidth;
 </script>
 
-<div style="width:100%;margin:0 10px 15px 10px; ">
-  <label for="wdth" style="background-color:white; ">
-    <code> ширина элемента в %</code>
- 
+<div style="width:100%;margin:0 10px 0px 10px; ">
+  <label for="wdth" style=" margin-top:-3px">
+    <code style="white-space: nowrap;"> Ширина элементов в %</code>
 
-  <input
-    bind:value={widthDef}
-    on:change="{(v)=>setItemWidth(v)}"
-id="wdth"
-name="wdth"
-    type="range"
-    list="marks"
-    min="0"
-    max="100"
-    step="1"
-  />
-
-</label>
+    <input
+      bind:value={widthDef}
+      on:change={(v) => setItemWidth(v)}
+      id="wdth"
+      name="wdth"
+      type="range"
+      list="marks"
+      min="0"
+      max="100"
+      step="1"
+    />
+  </label>
   <!-- <datalist id="marks" class="marks">
     <option value="0" label="0%"/>
     <option value="10" />
@@ -46,11 +44,9 @@ name="wdth"
 
   input[type="range"] {
     width: 100%;
-    /* height: 0px; */
-    padding:5px;
-    margin:-3px; 
-    /* transform-origin: 75px 75px;
-  transform: rotate(-90deg); */
+    height: 0px;
+    /* padding-bottom:5px; */
+    /* margin-top:-3px;  */
   }
 
   .marks option {

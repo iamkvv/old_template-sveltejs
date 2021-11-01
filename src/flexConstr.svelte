@@ -77,16 +77,20 @@
     </div>
     <div class="main">
         <div class="content">
-            <div style="display:flex; height:45px; flex-direction:row;justify-content:space-between">
+            <div
+                style="display:flex;
+                      flex-direction:row;
+            justify-content:space-between;
+            align-items:center;  
+            border-bottom:1px solid silver;"
+            >
                 <Widthrange widthDef={itemWidth} {setItemWidth} />
-            <!-- <div style="display:inline-block"> -->
                 <Button
                     on:click={addItem}
-                    style="padding:0px;height:45px;"
+                    style="padding:0px;margin-top:8px;height:40px;"
                     iconLeft="plus">Элемент</Button
                 >
-            <!-- </div> -->
-        </div>
+            </div>
             <div>
                 <p>Content1_</p>
                 <p>Content2_</p>
@@ -104,16 +108,12 @@
             </div>
         </div>
         <div class="controls">
-            
-
+            <div style="height:53px">Flex-свойства</div>
             <div>
-                
+                {#each flexProps as prp}
+                    <SelectProp flex_prop={prp} on:selprop={setFlexStyle} />
+                {/each}
             </div>
-
-            <!-- Выкладываем combobox'ы -->
-            <!-- {#each flexProps as prp}
-                <SelectProp flex_prop={prp} on:selprop={setFlexStyle} />
-            {/each} -->
         </div>
     </div>
     <div class="bottom">
@@ -133,7 +133,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: stretch;
+        /* align-items: stretch; */
         flex-grow: 1;
     }
 
@@ -141,19 +141,22 @@
         /* min-width: 500px; */
         display: flex;
         flex-direction: column;
-        flex-grow: 1;
+        flex-grow: 5;
         background-color: #ddffe5;
     }
 
     .controls {
         /* flex-grow: 1; */
-        width: 200px;
+        text-align: center;
+        flex-grow: 0;
+        width: 250px;
         background-color: #eee;
     }
 
     .top,
     .bottom {
-        /* min-width: 450px; */
+        box-sizing: border-box;
+        min-width: 495px;
         padding: 5px;
         background-color: aqua;
     }
