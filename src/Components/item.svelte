@@ -17,7 +17,12 @@
            --flex-shrink:{itemFlexShrink};
            --wdth:{width}%;"
 >
-    <div class="item-controls" style="--dsp:{width < 5 ? 'none' : 'flex'}; flex-direction:column;align-items: center;">
+    <div
+        class="item-controls"
+        style="--dsp:{width < 5
+            ? 'none'
+            : 'flex'}; flex-direction:column;align-items: center;"
+    >
         <div class="item-caption">
             {index} / {number}- {width}%
         </div>
@@ -69,7 +74,7 @@
         width: var(--wdth);
         display: var(--dsp);
         background-color: #5e9fd5;
-        height: auto;
+        height: 100%; /*при знач. auto item заполняет всю вертикаль */
         padding: 5px;
         margin-left: 0.5%;
         margin-bottom: 0.5%;
@@ -78,7 +83,7 @@
     .item-caption {
         font-size: 0.75em;
         margin-bottom: 5px;
-        color:#fff;
+        color: #fff;
     }
 
     .itemprop-value {
@@ -86,20 +91,18 @@
         font-size: 0.75em;
         margin: 5px;
         padding: 0;
-        /* width: 95%; */
     }
     .del {
-        color: white;
+        text-align: center;
+        line-height: 0.9em;
         position: absolute;
+        right: 0px;
+        top: 0px;
+        border-radius: 50%;
         height: 1em;
         width: 1em;
         background-color: rgb(221, 131, 128);
-        display: flex;
-        justify-content: center;
-        align-items: end;
-        right: 0px;
-        top: -0px;
-        border-radius: 50%;
+        color: white;
         cursor: pointer;
     }
 </style>

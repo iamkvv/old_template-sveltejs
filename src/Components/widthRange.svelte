@@ -4,9 +4,9 @@
   export let setItemWidth;
 </script>
 
-<div style="width:100%;min-width:130px;box-sizing:border-box;">
-  <label for="wdth" style="min-width:150px;margin-top:-16px;padding-left:10px;padding-right:10px;box-sizing:border-box;">
-    <code style="white-space: nowrap; font-weight:800;color:#2a7bbe"> Ширина элементов в %</code>
+<div class='input-range-wrapper'>
+  <label for="wdth" class="input-label">
+    <code class="label-text"> Ширина элементов в % </code>
 
     <input
       bind:value={widthDef}
@@ -14,31 +14,35 @@
       id="wdth"
       name="wdth"
       type="range"
-      list="marks"
       min="0"
       max="100"
       step="1"
     />
   </label>
-  <!-- <datalist id="marks" class="marks">
-    <option value="0" label="0%"/>
-    <option value="10" />
-    <option value="20" />
-    <option value="30" />
-    <option value="40" />
-    <option value="50" label="50%" />
-    <option value="60" />
-    <option value="70" />
-    <option value="80" />
-    <option value="90" />
-    <option value="100" label="100%" />
-  </datalist> -->
 </div>
- 
+
 <style>
+  .input-range-wrapper{
+    width:100%;
+    min-width:130px;
+    box-sizing:border-box;
+  }
   input[type="range"] {
     height: 0px;
-    width:100%;
-    padding:0;
+    width: 100%;
+    padding: 0px;
+    border-top: 1px !important;
+  }
+  .input-label {
+    min-width: 150px;
+    margin-top: -16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
+  .label-text {
+    white-space: nowrap;
+    font-weight: 800;
+    color: #2a7bbe;
   }
 </style>

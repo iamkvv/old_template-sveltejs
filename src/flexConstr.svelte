@@ -73,7 +73,7 @@
 </script>
 
 <div class="app-container">
-    <div class="top" />
+    <div class="top gen-caption">FLEX-BOX GENERATOR</div>
     <div class="main">
         <div class="content">
             <div class="control-childs">
@@ -134,7 +134,7 @@
     .app-container {
         min-height: 300px;
         min-width: 500px;
-        border: 1px solid silver;
+        border: 1px solid #ddd;
         display: flex;
         flex-direction: column;
     }
@@ -179,9 +179,23 @@
         background-color: aqua;
     }
 
+    .gen-caption {
+        font-size: 1.5em;
+        text-align: center;
+        color: aqua;
+        background: #5e9fd5;
+        letter-spacing: 8px;
+        font-weight: 600;
+        text-shadow: 2px 2px 2px #CE5937;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        box-shadow: 4px 4px 8px 2px rgba(34, 60, 80, 0.2);
+
+    }
     .field {
         border: 1px solid silver;
         padding: 5px;
+        min-height: 500px;
         /* -flex-переменные- */
         display: var(--disp);
         flex-direction: var(--dir);
