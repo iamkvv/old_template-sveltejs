@@ -5,6 +5,7 @@
 
     //https://svelte-atoms.web.app/
     import Button from "svelte-atoms/Button.svelte";
+    import Chip from "svelte-atoms/Chip.svelte";
     import Variables from "svelte-atoms/Variables.svelte";
 
     let flexProps = [
@@ -70,42 +71,20 @@
     }
 </script>
 
-<div class="container1">
-    <div class="top">
-        <p>Заголовок 1</p>
-        <p>Заголовок 2</p>
-    </div>
+<div class="app-container">
+    <div class="top" />
     <div class="main">
         <div class="content">
-            <div
-                style="display:flex;
-                      flex-direction:row;
-            justify-content:space-between;
-            align-items:center;  
-            border-bottom:1px solid silver;"
-            >
+            <div class="control-childs">
                 <Widthrange widthDef={itemWidth} {setItemWidth} />
-                <Button
-                    on:click={addItem}
-                    style="padding:0px;margin-top:8px;height:40px;"
-                    iconLeft="plus">Элемент</Button
-                >
+                <Chip
+                    style="margin-top:5px"
+                    selected
+                    text="Элемент"
+                    iconLeft="plus"
+                />
             </div>
-            <div>
-                <p>Content1_</p>
-                <p>Content2_</p>
-                <p>Content3_</p>
-                <p>Content1</p>
-                <p>Content2</p>
-                <p>Content3</p>
-                <p>Content4</p>
-                <p>Content5</p>
-                <p>Content6</p>
-                <p>Content7</p>
-                <p>Content8</p>
-                <p>Content9</p>
-                <p>Content10</p>
-            </div>
+            <div />
         </div>
         <div class="controls">
             <div style="height:53px">Flex-свойства</div>
@@ -116,47 +95,61 @@
             </div>
         </div>
     </div>
-    <div class="bottom">
-        <p>Подвал 1</p>
-        <p>подвал 2</p>
-    </div>
+    <div class="bottom" />
 </div>
 
 <style>
-    .container1 {
+    .app-container {
+        min-height: 300px;
+        min-width: 500px;
+        border: 1px solid gray;
         display: flex;
         flex-direction: column;
-        min-width: 400px;
     }
 
     .main {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        /* align-items: stretch; */
-        flex-grow: 1;
+        flex-grow: 5;
+        /* justify-content: space-between; */
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
     }
 
     .content {
-        /* min-width: 500px; */
-        display: flex;
-        flex-direction: column;
-        flex-grow: 5;
+        flex-basis: 100%;
+        min-width: 200px;
         background-color: #ddffe5;
     }
 
     .controls {
-        /* flex-grow: 1; */
         text-align: center;
-        flex-grow: 0;
-        width: 250px;
+        min-width: 250px;
+        flex-basis: 250px;
         background-color: #eee;
+    }
+    .control-childs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width:100%;
+        height:55px;
+        border-bottom: 1px solid silver;
     }
 
     .top,
     .bottom {
-        box-sizing: border-box;
+        /* box-sizing: border-box;
         min-width: 495px;
+        padding: 5px;
+        background-color: aqua; */
+
+        /* flex-grow: 13; */
+
+        box-sizing: border-box;
+        width: 100%;
         padding: 5px;
         background-color: aqua;
     }
