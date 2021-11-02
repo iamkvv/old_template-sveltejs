@@ -51,6 +51,7 @@
     let childs = [];
 
     function addItem() {
+        console.log("addItem");
         //     childs.push({number:childs.length+1});
         //     childs=childs;
         //Подробней: https://ru.svelte.dev/tutorial/updating-arrays-and-objects
@@ -77,17 +78,48 @@
         <div class="content">
             <div class="control-childs">
                 <Widthrange widthDef={itemWidth} {setItemWidth} />
-                <Chip
-                    style="margin-top:5px"
-                    selected
-                    text="Элемент"
-                    iconLeft="plus"
-                />
+                <div on:click={addItem}>
+                    <Chip
+                        style="margin-top:5px"
+                        selected
+                        text="Элемент"
+                        iconLeft="plus"
+                    />
+                </div>
+                <!-- <Button on:click={addItem} iconLeft="plus">Добавить компонент</Button>
+            -->
             </div>
+            <div
+                class="field"
+                style="--disp:{selDisplay};
+                   --dir:{selDirection};
+                   --jcont:{selJustContent};
+                   --wrap:{selWrap}"
+            >
+                {#each childs as child, i}
+                    <Item
+                        index={i}
+                        width={itemWidth}
+                        number={child.number}
+                        delFunc={deleteItem}
+                    />
+                {/each}
+            </div>
+
             <div />
         </div>
         <div class="controls">
-            <div style="height:53px">Flex-свойства</div>
+            <div
+                style="height: 55px;
+                border-bottom: 1px solid silver;
+                box-sizing: border-box;
+                padding: 15px 0;
+                letter-spacing: 8px;
+                color: #358ed7;
+                font-weight:700;"
+            >
+                Flex-свойства
+            </div>
             <div>
                 {#each flexProps as prp}
                     <SelectProp flex_prop={prp} on:selprop={setFlexStyle} />
@@ -102,7 +134,7 @@
     .app-container {
         min-height: 300px;
         min-width: 500px;
-        border: 1px solid gray;
+        border: 1px solid silver;
         display: flex;
         flex-direction: column;
     }
@@ -111,7 +143,6 @@
         display: flex;
         flex-direction: row;
         flex-grow: 5;
-        /* justify-content: space-between; */
         width: 100%;
         padding: 10px;
         box-sizing: border-box;
@@ -120,37 +151,41 @@
     .content {
         flex-basis: 100%;
         min-width: 200px;
-        background-color: #ddffe5;
+        background-color: #f8fffe;
     }
 
     .controls {
         text-align: center;
         min-width: 250px;
         flex-basis: 250px;
-        background-color: #eee;
+        background-color: #e0ffec;
     }
     .control-childs {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        width:100%;
-        height:55px;
+        width: 100%;
+        height: 55px;
+        box-sizing: border-box;
         border-bottom: 1px solid silver;
     }
 
     .top,
     .bottom {
-        /* box-sizing: border-box;
-        min-width: 495px;
-        padding: 5px;
-        background-color: aqua; */
-
-        /* flex-grow: 13; */
-
         box-sizing: border-box;
         width: 100%;
         padding: 5px;
         background-color: aqua;
+    }
+
+    .field {
+        border: 1px solid silver;
+        padding: 5px;
+        /* -flex-переменные- */
+        display: var(--disp);
+        flex-direction: var(--dir);
+        justify-content: var(--jcont);
+        flex-wrap: var(--wrap);
     }
 </style>

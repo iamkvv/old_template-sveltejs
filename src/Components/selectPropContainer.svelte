@@ -18,10 +18,14 @@
         flex-direction: row;
         justify-content: space-between;
         font-size: 0.75em;
-        width: 210px;
-        border: 1px solid rgb(193, 193, 194);
+        width: 220px;
+        border: 1px solid rgb(216, 216, 216);
+        margin-top:3px;
+        margin-bottom:5px;
     }
     .title_prop{
         padding:1px 0 0 5px;
+        color:rgb(138, 88, 185);
+        font-weight:600;
     }
 </style>

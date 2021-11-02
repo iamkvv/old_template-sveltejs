@@ -6,7 +6,7 @@
 
 <div style="width:100%;min-width:130px;box-sizing:border-box;">
   <label for="wdth" style="min-width:150px;margin-top:-16px;padding-left:10px;padding-right:10px;box-sizing:border-box;">
-    <code style="white-space: nowrap;"> Ширина элементов в %</code>
+    <code style="white-space: nowrap; font-weight:800;color:#2a7bbe"> Ширина элементов в %</code>
 
     <input
       bind:value={widthDef}
@@ -34,21 +34,11 @@
     <option value="100" label="100%" />
   </datalist> -->
 </div>
-
+ 
 <style>
-  /* .marks {
-    display: flex;
-    width: 90%;
-    justify-content: space-between;
-  } */
-
   input[type="range"] {
     height: 0px;
     width:100%;
     padding:0;
   }
-
-  /* .marks option {
-    width: 0;
-  } */
 </style>

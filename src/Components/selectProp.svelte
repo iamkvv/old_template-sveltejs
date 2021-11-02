@@ -30,6 +30,8 @@
         padding: 0px;
         margin: 0px;
         min-width: 120px;
-        background-color: blanchedalmond;
+       color:rgb(138, 88, 185);
+       font-weight: 600;
+        border:none;
     }
 </style>

@@ -68,8 +68,7 @@
         flex-shrink: var(--flex-shrink);
         width: var(--wdth);
         display: var(--dsp);
-        background-color: beige;
-        /* width: 150px; */
+        background-color: #5e9fd5;
         height: auto;
         padding: 5px;
         margin-left: 0.5%;
@@ -79,21 +78,22 @@
     .item-caption {
         font-size: 0.75em;
         margin-bottom: 5px;
+        color:#fff;
     }
 
     .itemprop-value {
         display: block;
         font-size: 0.75em;
-        margin: 0;
+        margin: 5px;
         padding: 0;
-        width: 95%;
+        /* width: 95%; */
     }
     .del {
         color: white;
         position: absolute;
         height: 1em;
         width: 1em;
-        background-color: blue;
+        background-color: rgb(221, 131, 128);
         display: flex;
         justify-content: center;
         align-items: end;
