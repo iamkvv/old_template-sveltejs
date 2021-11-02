@@ -4,8 +4,8 @@
   export let setItemWidth;
 </script>
 
-<div style="width:100%;box-sizing:border-box;">
-  <label for="wdth" style="padding-left:10px;padding-right:10px;box-sizing:border-box;">
+<div style="width:100%;min-width:130px;box-sizing:border-box;">
+  <label for="wdth" style="min-width:150px;margin-top:-16px;padding-left:10px;padding-right:10px;box-sizing:border-box;">
     <code style="white-space: nowrap;"> Ширина элементов в %</code>
 
     <input
@@ -45,8 +45,7 @@
   input[type="range"] {
     height: 0px;
     width:100%;
-    /* padding-bottom:5px; */
-    /* margin-top:-3px;  */
+    padding:0;
   }
 
   /* .marks option {
