@@ -3,6 +3,8 @@
     import Item from "./Components/item.svelte";
     import Widthrange from "./Components/widthRange.svelte";
 
+    import Docs from './Components/docs.svelte'
+
     //https://svelte-atoms.web.app/
     import Button from "svelte-atoms/Button.svelte";
     import Chip from "svelte-atoms/Chip.svelte";
@@ -70,6 +72,10 @@
         console.log("itemWidth", e.target.value);
         itemWidth = e.target.value;
     }
+
+    function showdoc(val){
+        console.log('showdoc', val)
+    }
 </script>
 
 <div class="app-container">
@@ -120,9 +126,12 @@
             </div>
             <div>
                 {#each flexProps as prp}
-                    <SelectProp flex_prop={prp} on:selprop={setFlexStyle} />
+                    <SelectProp {showdoc} flex_prop={prp} on:selprop={setFlexStyle} />
                 {/each}
             </div>
+
+            <Docs showprop='display'/>
+                
         </div>
     </div>
     <div class="bottom" />
