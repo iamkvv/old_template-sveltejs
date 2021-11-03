@@ -73,7 +73,7 @@
 </script>
 
 <div class="app-container">
-    <div class="top gen-caption">FLEX-BOX GENERATOR</div>
+    <div class="top app-caption">FLEX-BOX GENERATOR</div>
     <div class="main">
         <div class="content">
             <div class="control-childs">
@@ -86,8 +86,6 @@
                         iconLeft="plus"
                     />
                 </div>
-                <!-- <Button on:click={addItem} iconLeft="plus">Добавить компонент</Button>
-            -->
             </div>
             <div
                 class="field"
@@ -179,7 +177,7 @@
         background-color: aqua;
     }
 
-    .gen-caption {
+    .app-caption {
         font-size: 1.5em;
         text-align: center;
         color: aqua;
@@ -196,6 +194,7 @@
         border: 1px solid silver;
         padding: 5px;
         min-height: 500px;
+        box-sizing: border-box; /*!!*/
         /* -flex-переменные- */
         display: var(--disp);
         flex-direction: var(--dir);

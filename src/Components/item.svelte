@@ -72,9 +72,9 @@
         flex-grow: var(--flex-grow);
         flex-shrink: var(--flex-shrink);
         width: var(--wdth);
-        display: var(--dsp);
+        display: block;  /* var(--dsp); <- убрать!!!*/
         background-color: #5e9fd5;
-        height: 100%; /*при знач. auto item заполняет всю вертикаль */
+        /*height: auto;*/ /*при знач. auto item заполняет всю вертикаль */
         padding: 5px;
         margin-left: 0.5%;
         margin-bottom: 0.5%;
@@ -88,6 +88,7 @@
 
     .itemprop-value {
         display: block;
+        width:90%;/*иначе ширина может быть больше родителя*/ /*var(--wdth);*/
         font-size: 0.75em;
         margin: 5px;
         padding: 0;
