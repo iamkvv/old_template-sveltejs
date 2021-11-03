@@ -3,7 +3,7 @@
     import Item from "./Components/item.svelte";
     import Widthrange from "./Components/widthRange.svelte";
 
-    import Docs from './Components/docs.svelte'
+    import Docs from "./Components/docs.svelte";
 
     //https://svelte-atoms.web.app/
     import Button from "svelte-atoms/Button.svelte";
@@ -15,10 +15,11 @@
         { propname: "direction", default: "row" },
         { propname: "wrap", default: "nowrap" },
         { propname: "justify-content", default: "flex-start" },
+        { propname: "align-items", default: "stretch" },
     ];
 
     let itemWidth = 20;
-    let docItem =''
+    let docItem = "";
 
     function setFlexStyle(event) {
         //Обработчик выбора flex-свойства
@@ -36,6 +37,9 @@
             case "justify-content":
                 selJustContent = event.detail.propValue;
                 break;
+            case "align-items":
+                selAlitems = event.detail.propValue;
+                break;
             default:
                 console.log("No such prop");
         }
@@ -49,6 +53,9 @@
         .default; //"flex-start";
     let selWrap = flexProps.filter((o) => o.propname == "justify-content")[0]
         .default; //"flex-start";
+
+    let selAlitems = flexProps.filter((o) => o.propname == "align-items")[0]
+        .default; //"stretch";
 
     //Работаем с дочерними компонентами (item)
     let childs = [];
@@ -74,9 +81,9 @@
         itemWidth = e.target.value;
     }
 
-    function showdoc(val){
-        console.log('showdoc', val);
-        docItem =val;
+    function showdoc(val) {
+        console.log("showdoc", val);
+        docItem = val;
     }
 </script>
 
@@ -100,7 +107,8 @@
                 style="--disp:{selDisplay};
                    --dir:{selDirection};
                    --jcont:{selJustContent};
-                   --wrap:{selWrap}"
+                   --wrap:{selWrap};
+                   --alitems:{selAlitems}"
             >
                 {#each childs as child, i}
                     <Item
@@ -128,12 +136,15 @@
             </div>
             <div>
                 {#each flexProps as prp}
-                    <SelectProp {showdoc} flex_prop={prp} on:selprop={setFlexStyle} />
+                    <SelectProp
+                        {showdoc}
+                        flex_prop={prp}
+                        on:selprop={setFlexStyle}
+                    />
                 {/each}
             </div>
 
-            <Docs showprop={docItem}/>
-                
+            <Docs showprop={docItem} />
         </div>
     </div>
     <div class="bottom" />
@@ -195,11 +206,10 @@
         background: #5e9fd5;
         letter-spacing: 8px;
         font-weight: 600;
-        text-shadow: 2px 2px 2px #CE5937;
+        text-shadow: 2px 2px 2px #ce5937;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         box-shadow: 4px 4px 8px 2px rgba(34, 60, 80, 0.2);
-
     }
     .field {
         border: 1px solid silver;
@@ -211,5 +221,6 @@
         flex-direction: var(--dir);
         justify-content: var(--jcont);
         flex-wrap: var(--wrap);
+        align-items: var(--alitems);
     }
 </style>

@@ -24,4 +24,12 @@ export const  options = {
         { propValue: "wrap-reverse", text: "wrap-reverse" },
         { propValue: "unset", text: "unset" },
     ],
+    "align-items":[
+        { propValue: "stretch", text: "stretch" },
+        { propValue: "flex-start", text: "flex-start" },
+        { propValue: "flex-end", text: "flex-end" },
+        { propValue: "center", text: "center" },
+        { propValue: "baseline", text: "baseline" },
+    ]
 };
+
