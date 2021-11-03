@@ -8,6 +8,8 @@
     let itemOrder = 0;
     let itemFlexGrow = 0;
     let itemFlexShrink = 1;
+    let itemFlexBasis = 'auto';
+    let itemAlignSelf = 'auto';
 </script>
 
 <div
@@ -15,6 +17,8 @@
     style="--order:{itemOrder};
            --flex-grow:{itemFlexGrow};
            --flex-shrink:{itemFlexShrink};
+           --flex-basis:{itemFlexBasis};
+           --alignself:{itemAlignSelf};
            --wdth:{width}%;"
 >
     <div
@@ -26,7 +30,6 @@
         <div class="item-caption">
             {index} / {number}- {width}%
         </div>
-
         <Tooltip text="flex-order">
             <input
                 class="itemprop-value"
@@ -36,7 +39,6 @@
                 max="10"
             />
         </Tooltip>
-
         <Tooltip text="flex-grow">
             <input
                 class="itemprop-value"
@@ -46,7 +48,6 @@
                 max="10"
             />
         </Tooltip>
-
         <Tooltip text="flex-shrink">
             <input
                 class="itemprop-value"
@@ -56,7 +57,35 @@
                 max="10"
             />
         </Tooltip>
+        <Tooltip text="flex-basis">
+            <input
+            style="max-width:55px"
+                class="itemprop-value"
+                type="text"
+                bind:value={itemFlexBasis}
+            />
+        </Tooltip>
+        <Tooltip text="align-self">
+            <select bind:value={itemAlignSelf}>
+                    <option value='auto'>
+                        auto
+                    </option>
+                    <option value='flex-start'>
+                        flex-start
+                    </option>
+                    <option value='flex-end'>
+                        flex-end
+                    </option>
+                    <option value='center'>
+                        center
+                    </option>
+                    <option value='baseline'>
+                        baseline
+                    </option>
+            </select>
+        </Tooltip>
     </div>
+
     <!-- Кнопка удаления -->
     <div class="del" on:click={() => delFunc(index)}>
         <span>&times;</span>
@@ -64,6 +93,12 @@
 </div>
 
 <style>
+    select{
+        max-width:53px;
+        font-size:0.75em;
+        padding:0;
+        margin:0;
+    }
     .item-controls {
         display: var(--dsp);
     }
@@ -71,9 +106,12 @@
         order: var(--order);
         flex-grow: var(--flex-grow);
         flex-shrink: var(--flex-shrink);
+        flex-basis: var(--flex-basis);
+        align-self: var(--alignself);
         width: var(--wdth);
         display: block;  /* var(--dsp); <- убрать!!!*/
         background-color: #5e9fd5;
+        box-sizing: border-box;
         /*height: auto;*/ /*при знач. auto item заполняет всю вертикаль */
         padding: 5px;
         margin-left: 0.5%;
