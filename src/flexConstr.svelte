@@ -6,7 +6,7 @@
     import Docs from "./Components/docs.svelte";
 
     //https://svelte-atoms.web.app/
-    import Button from "svelte-atoms/Button.svelte";
+    // import Button from "svelte-atoms/Button.svelte";
     import Chip from "svelte-atoms/Chip.svelte";
     import Variables from "svelte-atoms/Variables.svelte";
 
@@ -16,6 +16,7 @@
         { propname: "wrap", default: "nowrap" },
         { propname: "justify-content", default: "flex-start" },
         { propname: "align-items", default: "stretch" },
+        { propname: "align-content", default: "stretch" },
     ];
 
     let itemWidth = 20;
@@ -40,6 +41,9 @@
             case "align-items":
                 selAlitems = event.detail.propValue;
                 break;
+            case "align-content":
+                selAlcontent = event.detail.propValue;
+                break;
             default:
                 console.log("No such prop");
         }
@@ -55,6 +59,8 @@
         .default; //"flex-start";
 
     let selAlitems = flexProps.filter((o) => o.propname == "align-items")[0]
+        .default; //"stretch";
+    let selAlcontent = flexProps.filter((o) => o.propname == "align-content")[0]
         .default; //"stretch";
 
     //Работаем с дочерними компонентами (item)
@@ -95,7 +101,7 @@
                 <Widthrange widthDef={itemWidth} {setItemWidth} />
                 <div on:click={addItem}>
                     <Chip
-                        style="margin-top:5px"
+                        style="margin:5px 5px"
                         selected
                         text="Элемент"
                         iconLeft="plus"
@@ -108,7 +114,8 @@
                    --dir:{selDirection};
                    --jcont:{selJustContent};
                    --wrap:{selWrap};
-                   --alitems:{selAlitems}"
+                   --alitems:{selAlitems};
+                   --alcontent:{selAlcontent};"
             >
                 {#each childs as child, i}
                     <Item
@@ -222,5 +229,7 @@
         justify-content: var(--jcont);
         flex-wrap: var(--wrap);
         align-items: var(--alitems);
+        align-content: var(--alcontent);
+
     }
 </style>

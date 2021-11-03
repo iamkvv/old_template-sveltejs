@@ -56,6 +56,31 @@
             <figcaption>justify-content: start end center between around</figcaption>
             <img src="/images/justify_content.gif" alt="row-column" />
         </figure>
+        
+        {:else if showprop == "align-items"}
+        <div class="doc-text">
+            <code>align-items</code> <br />
+            Это свойство определяет стандартное поведение того, как flex элементы будут 
+            располагаться вдоль поперечной оси на заданной строке. 
+            Это своебразная версия <code>justify-content</code>, но только для поперечной оси,
+             которая перпендикулярна главной.
+        </div>
+        <figure style="margin:0">
+            <figcaption>align-items: stretch flex-start  flex-end center baseline</figcaption>
+            <img src="/images/align_items.gif" alt="row-column" />
+        </figure>
+
+        {:else if showprop == "align-content"}
+        <div class="doc-text">
+            <code>align-content</code> <br />
+            Это свойство распределяет строки контейнера, когда есть свободное пространство
+             в поперечной оси. Подобно <code>justify-content</code>, оно выравнивает элементы 
+             по главной оси. Не приносит эффекта, когда есть только одна строка flex-элементов.
+        </div>
+        <figure style="margin:0">
+            <figcaption>align-items: stretch flex-start flex-end center between around</figcaption>
+            <img style="height:220px" src="/images/align-content.jpeg" alt="row-column" />
+        </figure>
 
     {/if}
 </div>

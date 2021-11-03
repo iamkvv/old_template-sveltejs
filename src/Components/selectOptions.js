@@ -30,6 +30,13 @@ export const  options = {
         { propValue: "flex-end", text: "flex-end" },
         { propValue: "center", text: "center" },
         { propValue: "baseline", text: "baseline" },
+    ],
+    "align-content":[
+        { propValue: "stretch", text: "stretch" },
+        { propValue: "flex-start", text: "flex-start" },
+        { propValue: "flex-end", text: "flex-end" },
+        { propValue: "center", text: "center" },
+        { propValue: "space-between", text: "space-between" },
+        { propValue: "space-around", text: "space-around" },
     ]
 };
-
