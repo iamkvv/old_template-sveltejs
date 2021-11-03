@@ -18,6 +18,7 @@
     ];
 
     let itemWidth = 20;
+    let docItem =''
 
     function setFlexStyle(event) {
         //Обработчик выбора flex-свойства
@@ -74,7 +75,8 @@
     }
 
     function showdoc(val){
-        console.log('showdoc', val)
+        console.log('showdoc', val);
+        docItem =val;
     }
 </script>
 
@@ -130,7 +132,7 @@
                 {/each}
             </div>
 
-            <Docs showprop='display'/>
+            <Docs showprop={docItem}/>
                 
         </div>
     </div>
