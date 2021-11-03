@@ -90,7 +90,7 @@
         display: block;
         width:90%;/*иначе ширина может быть больше родителя*/ /*var(--wdth);*/
         font-size: 0.75em;
-        margin: 5px;
+        margin: 5px auto;
         padding: 0;
     }
     .del {
