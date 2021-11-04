@@ -1,4 +1,4 @@
-import App from './flexConstr.svelte'  ///'./App3.svelte';
+import App from './AppFlexGen.svelte'  ///'./App3.svelte';
 
 const app = new App({
 	target: document.body,

@@ -4,4 +4,7 @@ https://medium.com/@stasonmars/%D1%80%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%BC
 
 npm install -D svelte-atoms
 https://codepen.io/justd/pen/yydezN
+
+//npm i --save lodash
+
 -->
