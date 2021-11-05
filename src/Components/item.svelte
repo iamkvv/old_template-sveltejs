@@ -110,7 +110,7 @@
         align-self: var(--alignself);
         width: var(--wdth);
         display: block;  /* var(--dsp); <- убрать!!!*/
-        background-color: #5e9fd5;
+        background-color:#5e9fd5;/* #7ccc64;*/ 
         box-sizing: border-box;
         /*height: auto;*/ /*при знач. auto item заполняет всю вертикаль */
         padding: 5px;
